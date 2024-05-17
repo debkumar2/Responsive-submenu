@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    width: 100vw;
+    font-family: "Montserrat", sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #494949;
+    align-items: center;
+    padding: 1.2rem 3rem;
+}
+
+.nav-logo a {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.ham-menu {
+    display: none;
+    font-size: 2.4rem;
+    color: #2d57d9;
+}
+
+.ham-close {
+    display: none;
+    font-size: 2.4rem;
+    color: #fff;
+}
+
+.nav-links>.nav-items {
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.nav-links>.nav-items>a {
+    color: #fff;
+    font-size: 1.4rem;
+    display: flex;
+    padding: 16px 0;
+    transition: 0.3s ease;
+    align-items: center;
+}
+
+.nav-items>a>.dropdown-arrow {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-left: 10px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.nav-items:hover>a>.dropdown-arrow {
+    transform: rotate(-180deg);
+}
+
+.nav-links>.nav-items>.dropdown-menu {
+    width: 150px;
+    position: absolute;
+    top: 80%;
+    left: -16px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    transform: translateY(0);
+    transition: 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.nav-links>.nav-items:hover>.dropdown-menu {
+    transform: translateY(8px);
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-links>.nav-items>.dropdown-menu>.dropdown-menu-items>a {
+    display: block;
+    color: #777;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 16px;
+}
+
+.nav-links>.nav-items>.dropdown-menu>.dropdown-menu-items>a:hover {
+    color: #2d57d9;
+    background-color: #2d58d936;
+}
+
+.background {
+    position: fixed;
+    z-index: 998;
+    background-color: #00000058;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+.background.active {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-out;
+
+}
+
+@media only screen and (max-width: 992px) {
+    body {
+        max-width: 992px;
+        overflow: hidden;
+    }
+
+    .nav-container {
+        padding: 1.5rem 3rem;
+    }
+
+    .nav-links-container {
+        position: absolute;
+        right: -400px;
+        visibility: hidden;
+        width: 350px;
+        height: 100%;
+        top: 0;
+        overflow-y: auto;
+        background-color: #2d57d9;
+        z-index: 999;
+        padding: 15px;
+        transition: all 0.3s ease-in;
+    }
+
+    .nav-links-container.open {
+        visibility: visible;
+        transition: all 0.3s ease-out;
+        right: 0;
+    }
+
+    .nav-links-container>.nav-links>.nav-items {
+        display: block;
+        margin: 0;
+    }
+
+    .nav-links-container>.nav-links>.nav-items>a {
+        color: #fff;
+        padding: 24px 15px;
+        border-bottom: 1px solid #7478ff;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-items:hover>a>.dropdown-arrow {
+        transform: rotate(0);
+    }
+
+    .dropdown-menu-branch.active>a>.dropdown-arrow {
+        transform: rotate(-180deg);
+    }
+
+
+    .nav-links>.nav-items>.dropdown-menu {
+        width: 100%;
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        border-radius: 0;
+        border-bottom: 1px solid #ffffff20;
+        background-color: transparent;
+        transform: translateY(0px);
+        box-shadow: none;
+        padding: 0px;
+        left: auto;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .nav-links>.nav-items:hover>.dropdown-menu {
+        transform: translateY(0px);
+    }
+
+    .nav-links>.nav-items>.dropdown-menu>.dropdown-menu-items>a {
+        color: #ffffffba;
+        ;
+        border: none;
+    }
+
+    .nav-links>.nav-items>.dropdown-menu>.dropdown-menu-items>a:hover {
+        color: #fff;
+    }
+
+    .ham-menu {
+        cursor: pointer;
+        display: block;
+        color: #fff;
+    }
+
+    .ham-close {
+        display: block;
+        padding: 16px;
+        cursor: pointer;
+        width: fit-content;
+    }
+}
